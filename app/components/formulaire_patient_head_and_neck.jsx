@@ -1475,25 +1475,38 @@ const handleDeleteClick = (index) => {
                                                     <li><span className="font-bold">Was imaging studies performed : </span>{selectedResponse.option7}</li>
                                                     <li><span className="font-bold">Studies Performed : </span>{selectedResponse.studiesPerform && selectedResponse.studiesPerform.join(', ')}</li>
                                                     <li><span className="font-bold">Date CT Scans : </span>{selectedResponse.dateCtScan}</li>
+                                                    <li><span className="font-bold">Date CT Soft Tissue Neck : </span>{selectedResponse.dateCtSTN}</li>
                                                     <li><span className="font-bold">Date MRI : </span>{selectedResponse.dateMRI}</li>
                                                     <li><span className="font-bold">Date PET Scan : </span>{selectedResponse.datePetScan}</li>
-                                                    <li><span className="font-bold">Date Endoscopy : </span>{selectedResponse.dateEndoscopy}</li>
-                                                    <li><span className="font-bold">Date Colonoscopy : </span>{selectedResponse.dateColonoscopy}</li>
+                                                    <li><span className="font-bold">Date Thyroid U/S : </span>{selectedResponse.dateThyroidUS}</li>
+                                                    <li><span className="font-bold">Date EUA with Endoscopy : </span>{selectedResponse.dateEE}</li>
                                                     <li><span className="font-bold">Date MRCP : </span>{selectedResponse.dateMRCP}</li>
-                                                    <li><span className="font-bold">Date U/S : </span>{selectedResponse.dateUS}</li>
+                                                    <li><span className="font-bold">Date Vocal Cord Exam : </span>{selectedResponse.dateVCE}</li>
                                                     <li><span className="font-bold">Date Other : </span>{selectedResponse.dateOther}</li>
                                                     <li><span className="font-bold">Started treatment for cancer : </span>{selectedResponse.option8}</li>
                                                     <li><span className="font-bold">Treatment for cancer : </span>{selectedResponse.treatment && selectedResponse.treatment.join(', ')}</li>
                                                     <li><span className="font-bold">Started treatment for Chemotherapy : </span>{selectedResponse.dateStartedChemo}</li>
                                                     <li><span className="font-bold">End treatment for Chemotherapy : </span>{selectedResponse.dateEndChemo}</li>
-                                                    <li><span className="font-bold">Started treatment for Radiation : </span>{selectedResponse.dateStartedRadiation}</li>
-                                                    <li><span className="font-bold">End treatment for Radiation : </span>{selectedResponse.dateEndRadiation}</li>
-                                                    <li><span className="font-bold">Started treatment for Proton : </span>{selectedResponse.dateStartedProton}</li>
-                                                    <li><span className="font-bold">End treatment for Proton : </span>{selectedResponse.dateEndProton}</li>
-                                                    <li><span className="font-bold">Started treatment for Proton Surgery : </span>{selectedResponse.dateStartedSurgery}</li>
-                                                    <li><span className="font-bold">End treatment for Proton Surgery : </span>{selectedResponse.dateEndSurgery}</li>
+                                                    <li><span className="font-bold">Started treatment for Immunotherapy : </span>{selectedResponse.dateStartedImmuno}</li>
+                                                    <li><span className="font-bold">End treatment for Immunotherapy : </span>{selectedResponse.dateEndImmuno}</li>
+                                                    <li><span className="font-bold">Started treatment for RAI : </span>{selectedResponse.dateStartedRAI}</li>
+                                                    <li><span className="font-bold">End treatment for RAI : </span>{selectedResponse.dateEndRAI}</li>
+                                                    <li><span className="font-bold">Started treatment for Targeted Therapy : </span>{selectedResponse.dateStartedTT}</li>
+                                                    <li><span className="font-bold">End treatment for Targeted Therapy : </span>{selectedResponse.dateEndTT}</li>
+                                                    <li><span className="font-bold">Started treatment for Surgery : </span>{selectedResponse.dateStartedSurgery}</li>
+                                                    <li><span className="font-bold">End treatment for Surgery : </span>{selectedResponse.dateEndSurgery}</li>
                                                     <li><span className="font-bold">Procedure/Surgical procedure : </span>{selectedResponse.procedure && selectedResponse.procedure.join(', ')}</li>
-                                                    <li><span className="font-bold">Other : </span>{selectedResponse.otherChoice}</li>
+                                                    <li><span className="font-bold">Date Genetic testing for mutation : </span>{selectedResponse.dateGTM}</li>
+                                                    <li><span className="font-bold">Date Swallow Eval : </span>{selectedResponse.dateSwallowEval}</li>
+                                                    <li><span className="font-bold">Date Speech Eval/Therapy : </span>{selectedResponse.dateSET}</li>
+                                                    <li><span className="font-bold">Date Dental Eval : </span>{selectedResponse.dateDentalEval}</li>
+                                                    <li><span className="font-bold">Date Audiogram : </span>{selectedResponse.dateAudiogram}</li>
+                                                    <li><span className="font-bold">Date Feeding Tube Placement : </span>{selectedResponse.dateFTP}</li>  
+                                                    <li><span className="font-bold">Date Nutrition Eval : </span>{selectedResponse.dateNutritionEval}</li>
+                                                    <li><span className="font-bold">Date Clinical Trial : </span>{selectedResponse.dateClinicalTrial}</li>
+                                                    <li><span className="font-bold">Other Procedure : </span>{selectedResponse.Other}</li>
+                                                    
+                                                    
                                                     
                                                 </ul>
                                             </div>
