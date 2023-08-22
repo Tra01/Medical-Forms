@@ -11,7 +11,7 @@ import HeadNeckForm from './components/formulaire_patient_head_and_neck'
 export default function Home() {
   return (
     <div>
-      <GeneralForm/>
+      <PatientForm/>
     </div>
     
   )
