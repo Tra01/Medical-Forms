@@ -156,7 +156,7 @@ const GeneralForm = () => {
   }
   const handleAddProcedure = () => {
     if (procedure.trim() && dateProcedure.trim()) {
-        setFormProcedure([...formProcedure, { procedure, dateProcedure }]);
+        setFormProcedure([...formProcedure, {id: formProcedure.length + 1, procedure, dateProcedure }]);
         setProcedure('');
         setDateProcedure('');
     }
@@ -164,7 +164,7 @@ const GeneralForm = () => {
 
   const handleAddMedication = () => {
     if (nameMedication.trim() && doseMedication.trim() && frequencyMedication.trim()){
-        setFormMedication([...formMedication, {nameMedication, doseMedication, frequencyMedication}])
+        setFormMedication([...formMedication, {id: formMedication.length + 1, nameMedication, doseMedication, frequencyMedication}])
         setNameMedication('');
         setDoseMedication('');
         setFrequencyMedication('');
@@ -172,17 +172,24 @@ const GeneralForm = () => {
   }
   const handleAddHistoryFamily = () => {
     if (relationship.trim() && typeOfCancer.trim()){
-        setFormHistoryFamily([...formHistoryFamily, {relationship, typeOfCancer}])
+        setFormHistoryFamily([...formHistoryFamily, {id: formHistoryFamily.length + 1, relationship, typeOfCancer}])
         setRelationship('');
         setTypeOfCancer('');
     }    
   }
-  const handleDeleteProcedure = (e, index) => {
-    e.preventDefault();
-    const newData = [...formProcedure];
-    newData.splice(index, procedure);
-    setFormProcedure(newData);
+  const handleDeleteHistoryFamily = (id) => {
+    const updatedHistoryFamily = formHistoryFamily.filter(item => item.id !== id);
+    setFormHistoryFamily(updatedHistoryFamily);
   };
+  const handleDeleteMedication = (id) => {
+    const updatedMedication = formMedication.filter(item => item.id !== id);
+    setFormMedication(updatedMedication);
+  };
+  const handleDeleteProcedure = (id) => {
+    const updatedProcedure = formProcedure.filter(item => item.id !== id);
+    setFormProcedure(updatedProcedure);
+  };
+  
   const showMyModal = (e) => {
     e.preventDefault();
     setShowModal(true)
@@ -725,7 +732,7 @@ const GeneralForm = () => {
                                         {data.dateProcedure}
                                     </td>
                                     <td className="px-3 py-4 text-right">
-                                        <a href="#" onClick={handleDeleteProcedure} type='button' className='mr-3' data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">
+                                        <a href="#" onClick={() => handleDeleteProcedure(data.id)} type='button' className='mr-3' data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">
                                             <svg className="w-[18px] h-[18px] text-red-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z"/>
                                             </svg>
@@ -856,7 +863,7 @@ const GeneralForm = () => {
                                         {data.frequencyMedication}
                                     </td>
                                     <td className="px-3 py-4 text-right">
-                                        <a href="#" onClick={handleDeleteProcedure} type='button' className='mr-3' data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">
+                                        <a href="#" onClick={() => handleDeleteMedication(data.id)} type='button' className='mr-3' data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">
                                             <svg className="w-[18px] h-[18px] text-red-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z"/>
                                             </svg>
@@ -1107,7 +1114,7 @@ const GeneralForm = () => {
                                             {data.typeOfCancer}
                                         </td>
                                         <td className="px-3 py-4 text-right">
-                                            <a href="#" onClick={handleDeleteProcedure} type='button' className='mr-3' data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">
+                                            <a href="#" onClick={() => handleDeleteHistoryFamily(data.id)} type='button' className='mr-3' data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">
                                                 <svg className="w-[18px] h-[18px] text-red-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z"/>
                                                 </svg>
@@ -2322,11 +2329,6 @@ const GeneralForm = () => {
             </div>        
         </form>            
 
-        <div className='flex items-center justify-center w-full mt-2'>
-            <button className="w-[50%] text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                Patient Form
-            </button>
-        </div>
 
     </div>
     

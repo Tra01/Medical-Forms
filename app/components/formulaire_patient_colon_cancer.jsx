@@ -54,6 +54,7 @@ const schemaValidation = z.object({
     studiesPerform: z.array(z.enum(['CT Scans', 'MRI', 'PET Scan', 'Endoscopy', 'Colonoscopy', 'Other'])).optional(),
     treatment: z.array(z.enum(['Chemotherapy', 'Immunotherapy', 'Radiation', 'Proton Treatment', 'Surgery'])).optional(),
     procedure: z.array(z.enum(['Radiofrequency Ablation of liver', 'Chemo Embolization', 'Y-90 Microsphere Therapy', 'Other'])).optional(),
+    diagnosisName: z.string().optional(),
 });
 
 const PatientForm = () => {
@@ -440,6 +441,20 @@ const handleDeleteClick = (index) => {
 
                     </div>
 
+                </div>
+                <div className="relative z-0 w-full mt-2 mb-3 group flex items-center text-center">
+                    <label htmlFor="diagnosis" className="font-bold">Name of Diagnosis if known </label>
+                    <input 
+                        type="text" 
+                        name="diagnosis" 
+                        id="diagnosis" 
+                        className=" ms-1 me-1 block py-2.5 px-0 w-[60%] text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " 
+                        {...register('diagnosisName')}
+                    />
+                    <label htmlFor="diagnosis" className="font-bold mr-2">Colon Cancer</label>
+                </div>
+                <div className="text-center">
+                    {errors.diagnosisName && <p className="text-red-800">{errors.diagnosisName.message}</p>}
                 </div>
             </div>
             <div className="font-bold ml-5 mb-2 mt-5"><h3>History of Present Illness</h3></div> 
@@ -1258,6 +1273,7 @@ const handleDeleteClick = (index) => {
                                                     <li><span className="font-bold">New Patient Visit : </span>{selectedResponse.option2}</li>
                                                     <li><span className="font-bold">Second Opinion : </span>{selectedResponse.option3}</li>
                                                     <li><span className="font-bold">Recurrent Cancer : </span>{selectedResponse.option4}</li>
+                                                    <li><span className="font-bold">Diagnosis Name : </span>{selectedResponse.diagnosisName}</li>
                                                     <li><span className="font-bold">Biopsy Performed : </span>{selectedResponse.option5}</li>
                                                     <li><span className="font-bold">Date Biopsy Performed : </span>{selectedResponse.dateBiopsy}</li>
                                                     <li><span className="font-bold">Name Of Hospital : </span>{selectedResponse.hospitalName}</li>
